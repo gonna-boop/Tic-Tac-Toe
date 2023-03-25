@@ -1,2 +1,3 @@
 # Tic Tac Toe
- JS Project
+For this project, I'll be creating a Tic Tac Toe project.  
+
