@@ -1,0 +1,12 @@
+#gameBoard {
+    border: 5px solid rgb(255, 166, 0);
+    max-width: 40%;
+    min-height: 200px;
+    border-radius: 5px;
+}
+
+#gameBox {
+    color: orange;
+    min-height: 125px;
+    border: 1px solid rgb(167, 159, 159);
+}
