@@ -5,8 +5,19 @@
     border-radius: 5px;
 }
 
-#gameBox {
+#gameBox, #gameBox0, #gameBox1, #gameBox2, #gameBox3, #gameBox4, 
+#gameBox5, #gameBox6, #gameBox7, #gameBox8 {
     color: orange;
     min-height: 125px;
     border: 1px solid rgb(167, 159, 159);
+}
+
+
+#mouseOverGameBox, #mouseOverGameBox0, #mouseOverGameBox1, #mouseOverGameBox2,
+#mouseOverGameBox3, #mouseOverGameBox4, #mouseOverGameBox5, #mouseOverGameBox6, 
+#mouseOverGameBox7, #mouseOverGameBox8 {
+    color: rgb(121, 119, 117);
+    background-color: rgb(243, 221, 180);
+    min-height: 125px;
+    border: 1px solid rgb(116, 116, 116);
 }
