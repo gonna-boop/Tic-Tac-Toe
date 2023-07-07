@@ -13,9 +13,23 @@ function mouseOut(i) {
   colorChange.id = `gameBox${i}`;
 }
 
-function playGame(i) {
-  const makeMove = document.getElementById(`mouseOverGameBox${i}`);
+// function playGame(i) {
+//   const makeMove = document.getElementById(`mouseOverGameBox${i}`);
   
+// }
+
+// the below function writes the game move on the board
+
+function writeMove(i) {
+  if (boardPlay === 0) {
+    const writeX = document.getElementById(`mouseOverGameBox${i}`);
+    writeX.innerHTML += 'X';
+    boardPlay++;
+  } else {
+    const writeO = document.getElementById(`mouseOverGameBox${i}`);
+    writeO.innerHTML += 'O';
+    boardPlay = 0;
+  }
 }
 
 // the below function creates the Gameboard for the game to be played on
@@ -33,7 +47,7 @@ const createGameBoard = (function () {
           gameBox.setAttribute('onmouseover', `mouseOver(${i})`);
           gameBox.setAttribute('onmouseout', `mouseOut(${i})`);
           gameBox.setAttribute('onclick', `playGame(${i})`);
-          gameBox.setAttribute('onclick', 'writeMove()');
+          gameBox.setAttribute('onclick', `writeMove(${i})`);
           gameContainer.appendChild(gameBox);
         } else if (i < 6) {
           const gameContainer = document.getElementById('gameBoard2');
@@ -44,7 +58,7 @@ const createGameBoard = (function () {
           gameBox.setAttribute('onmouseover', `mouseOver(${i})`);
           gameBox.setAttribute('onmouseout', `mouseOut(${i})`);
           gameBox.setAttribute('onclick', `playGame(${i})`);
-          gameBox.setAttribute('onclick', 'writeMove()');
+          gameBox.setAttribute('onclick', `writeMove(${i})`);
           gameContainer.appendChild(gameBox);
         } else {
           const gameContainer = document.getElementById('gameBoard3');
@@ -55,7 +69,7 @@ const createGameBoard = (function () {
           gameBox.setAttribute('onmouseover', `mouseOver(${i})`);
           gameBox.setAttribute('onmouseout', `mouseOut(${i})`);
           gameBox.setAttribute('onclick', `playGame(${i})`);
-          gameBox.setAttribute('onclick', 'writeMove()');
+          gameBox.setAttribute('onclick', `writeMove(${i})`);
           gameContainer.appendChild(gameBox);
         }
       }
@@ -64,15 +78,3 @@ const createGameBoard = (function () {
 }());
 
 createGameBoard.gameBoard();
-
-// the below function writes the game move on the board
-
-function writeMove() {
-  if (boardPlay === 0) {
-    // write down "x" on game board
-    boardPlay++; 
-  } else {
-    // write down "o" on game board
-    boardPlay = 0;
-  }
-}

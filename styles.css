@@ -20,4 +20,6 @@
     background-color: rgb(243, 221, 180);
     min-height: 125px;
     border: 1px solid rgb(116, 116, 116);
+    align-items: center;
+    justify-content: center;
 }
