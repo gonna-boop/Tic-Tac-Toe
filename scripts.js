@@ -14,6 +14,11 @@ function mouseOut(i) {
   colorChange.id = `gameBox${i}`;
 }
 
+// the checkScore() function checks the gameBoard array to
+// find a winner.  If there is no winner, nothing happens.
+// change to announce a tie and reset the gameboard if there
+// is a winner
+
 function checkScore(gameBoard) {
   if ((gameBoard[0] === 'X' && gameBoard[1] === 'X' && gameBoard[2] === 'X')
        || (gameBoard[3] === 'X' && gameBoard[4] === 'X' && gameBoard[5] === 'X')
@@ -24,7 +29,8 @@ function checkScore(gameBoard) {
        || (gameBoard[2] === 'X' && gameBoard[5] === 'X' && gameBoard[8] === 'X')
        || (gameBoard[2] === 'X' && gameBoard[4] === 'X' && gameBoard[6] === 'X')
        || (gameBoard[1] === 'X' && gameBoard[4] === 'X' && gameBoard[7] === 'X')) {
-    alert('X wins!');
+    console.log('X wins!');
+    resetGame(gameBoard);
   } else if ((gameBoard[0] === '0' && gameBoard[1] === 'O' && gameBoard[2] === 'O')
   || (gameBoard[3] === 'O' && gameBoard[4] === 'O' && gameBoard[5] === 'O')
   || (gameBoard[6] === 'O' && gameBoard[7] === 'O' && gameBoard[8] === 'O')
@@ -34,11 +40,13 @@ function checkScore(gameBoard) {
   || (gameBoard[2] === 'O' && gameBoard[5] === 'O' && gameBoard[8] === 'O')
   || (gameBoard[2] === 'O' && gameBoard[4] === 'O' && gameBoard[6] === 'O')
   || (gameBoard[1] === 'O' && gameBoard[4] === 'O' && gameBoard[7] === 'O')) {
-    alert('O wins!');
+    console.log('O wins!');
+    resetGame(gameBoard);
   }
 }
 
-// the below function writes the game move on the board
+// the below function writes the game move on the board, and
+// writes the move into the gameBoard array
 
 function writeMove(i) {
   if (boardPlay === 0) {
@@ -104,3 +112,15 @@ const createGameBoard = (function () {
 }());
 
 createGameBoard.gameBoard();
+
+function resetGame() {
+  gameBoard = ['', '', '', '', '', '', '', '', ''];
+  const removeBoard1 = document.getElementById('gameBoard1');
+  removeBoard1.innerHTML = '';
+  const removeBoard2 = document.getElementById('gameBoard2');
+  removeBoard2.innerHTML = '';
+  const removeBoard3 = document.getElementById('gameBoard3');
+  removeBoard3.innerHTML = '';
+  createGameBoard.gameBoard();
+  boardPlay = 0;
+}
