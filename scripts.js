@@ -1,4 +1,5 @@
 let boardPlay = 0;
+let gameBoard = ['', '', '', '', '', '', '', '', ''];
 
 // the below two functions change the color of the gameboard
 // when the mouse hovers above them
@@ -13,10 +14,29 @@ function mouseOut(i) {
   colorChange.id = `gameBox${i}`;
 }
 
-// function playGame(i) {
-//   const makeMove = document.getElementById(`mouseOverGameBox${i}`);
-  
-// }
+function checkScore(gameBoard) {
+  if ((gameBoard[0] === 'X' && gameBoard[1] === 'X' && gameBoard[2] === 'X')
+       || (gameBoard[3] === 'X' && gameBoard[4] === 'X' && gameBoard[5] === 'X')
+       || (gameBoard[6] === 'X' && gameBoard[7] === 'X' && gameBoard[8] === 'X')
+       || (gameBoard[0] === 'X' && gameBoard[4] === 'X' && gameBoard[8] === 'X')
+       || (gameBoard[0] === 'X' && gameBoard[3] === 'X' && gameBoard[6] === 'X')
+       || (gameBoard[2] === 'X' && gameBoard[4] === 'X' && gameBoard[6] === 'X')
+       || (gameBoard[2] === 'X' && gameBoard[5] === 'X' && gameBoard[8] === 'X')
+       || (gameBoard[2] === 'X' && gameBoard[4] === 'X' && gameBoard[6] === 'X')
+       || (gameBoard[1] === 'X' && gameBoard[4] === 'X' && gameBoard[7] === 'X')) {
+    alert('X wins!');
+  } else if ((gameBoard[0] === '0' && gameBoard[1] === 'O' && gameBoard[2] === 'O')
+  || (gameBoard[3] === 'O' && gameBoard[4] === 'O' && gameBoard[5] === 'O')
+  || (gameBoard[6] === 'O' && gameBoard[7] === 'O' && gameBoard[8] === 'O')
+  || (gameBoard[0] === 'O' && gameBoard[4] === 'O' && gameBoard[8] === 'O')
+  || (gameBoard[0] === 'O' && gameBoard[3] === 'O' && gameBoard[6] === 'O')
+  || (gameBoard[2] === 'O' && gameBoard[4] === 'O' && gameBoard[6] === 'O')
+  || (gameBoard[2] === 'O' && gameBoard[5] === 'O' && gameBoard[8] === 'O')
+  || (gameBoard[2] === 'O' && gameBoard[4] === 'O' && gameBoard[6] === 'O')
+  || (gameBoard[1] === 'O' && gameBoard[4] === 'O' && gameBoard[7] === 'O')) {
+    alert('O wins!');
+  }
+}
 
 // the below function writes the game move on the board
 
@@ -24,11 +44,17 @@ function writeMove(i) {
   if (boardPlay === 0) {
     const writeX = document.getElementById(`mouseOverGameBox${i}`);
     writeX.innerHTML += 'X';
+    document.getElementById(`mouseOverGameBox${i}`).onclick = null;
+    gameBoard.splice(i, 1, 'X');
     boardPlay++;
-  } else {
+    checkScore(gameBoard);
+  } else if (boardPlay === 1) {
     const writeO = document.getElementById(`mouseOverGameBox${i}`);
     writeO.innerHTML += 'O';
+    document.getElementById(`mouseOverGameBox${i}`).onclick = null;
+    gameBoard.splice(i, 1, 'O');
     boardPlay = 0;
+    checkScore(gameBoard);
   }
 }
 
