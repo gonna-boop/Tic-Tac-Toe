@@ -24,9 +24,12 @@
     <div class="row" id="gameBoard3"></div>
 </div>
 
-<div id="buttonBoxes">
-    <button type="button" onclick="createGameBoard.gameBoard()" id="buttonBox1" class="btn btn-outline-light btn-info position-absolute">Play Game</button>
-    <button type="button" onclick="resetGame()" id="buttonBox2" class="btn btn-outline-light btn-info position-absolute">Reset Board</button>
+<div id="buttonBoxes" class="d-grid gap-2 d-sm-flex mb-5 justify-content-sm-center">
+    <div class="container text-center">
+        <button type="button" data-id="playBtn" onclick="startGame(); buttonControl()" id="buttonBox1" class="btn btn-outline-light btn-info">Play Game</button>
+        <button type="button" data-id="resetBtn" onclick="resetGame(); buttonControl()" id="buttonBox2" class="btn btn-outline-light btn-info">Reset Board</button>
+    </div>
+    
 </div>
 
 
