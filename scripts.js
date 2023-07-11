@@ -2,6 +2,13 @@ let boardPlay = 0;
 let gameBoard = ['', '', '', '', '', '', '', '', ''];
 let xScore = 0;
 let oScore = 0;
+let controller = 0;
+
+function buttonControl() {
+  if (controller = 1) {
+    document.querySelector('[data-id="playBtn"]').onclick = null;
+  }
+}
 
 // the below two functions change the color of the gameboard
 // when the mouse hovers above them
@@ -115,7 +122,12 @@ const createGameBoard = (function () {
   };
 }());
 
-// createGameBoard.gameBoard();
+function startGame() {
+  createGameBoard.gameBoard();
+  controller = 1;
+  buttonControl();
+}
+
 
 function resetGame() {
   gameBoard = ['', '', '', '', '', '', '', '', ''];
@@ -127,4 +139,5 @@ function resetGame() {
   removeBoard3.innerHTML = '';
   createGameBoard.gameBoard();
   boardPlay = 0;
+  controller = 0;
 }
