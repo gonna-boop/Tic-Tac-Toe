@@ -29,3 +29,23 @@
     line-height: 125px;
     font-size: 50px;
 }
+
+#buttonBoxes {
+    display: flex;
+    margin-left: 580px;
+}
+
+#buttonBox1 {
+    max-width: 40%;
+    min-height: 50px;
+    border-radius: 5px;
+    margin-top: 550px;
+}
+
+#buttonBox2 {
+    max-width: 40%;
+    min-height: 50px;
+    border-radius: 5px;
+    margin-top: 550px;
+    margin-left: 175px;
+}
