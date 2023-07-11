@@ -5,7 +5,9 @@ let oScore = 0;
 let controller = 0;
 
 function buttonControl() {
-  if (controller = 1) {
+  if (controller = 0) {
+    document.querySelector('[data-id="resetBtn"]').onclick = null;
+  } else if (controller = 1) {
     document.querySelector('[data-id="playBtn"]').onclick = null;
   }
 }
@@ -124,10 +126,14 @@ const createGameBoard = (function () {
 
 function startGame() {
   createGameBoard.gameBoard();
-  controller = 1;
+  controller++;
   buttonControl();
+  const buttonToggle = document.querySelector('[data-id="resetBtn"]');
+  buttonToggle.setAttribute('onclick', 'resetGame()');
+  // const buttonToggle2 = document.querySelector('[data-id="resetBtn"]');
+  // buttonToggle2.setAttribute('onclick', 'buttonControl()');
+  // onclick="resetGame(); buttonControl()"
 }
-
 
 function resetGame() {
   gameBoard = ['', '', '', '', '', '', '', '', ''];
