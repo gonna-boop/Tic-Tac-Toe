@@ -1,5 +1,7 @@
 let boardPlay = 0;
 let gameBoard = ['', '', '', '', '', '', '', '', ''];
+let xScore = 0;
+let oScore = 0;
 
 // the below two functions change the color of the gameboard
 // when the mouse hovers above them
@@ -30,8 +32,9 @@ function checkScore(gameBoard) {
        || (gameBoard[2] === 'X' && gameBoard[4] === 'X' && gameBoard[6] === 'X')
        || (gameBoard[1] === 'X' && gameBoard[4] === 'X' && gameBoard[7] === 'X')) {
     console.log('X wins!');
+    xScore++;
     resetGame(gameBoard);
-  } else if ((gameBoard[0] === '0' && gameBoard[1] === 'O' && gameBoard[2] === 'O')
+  } else if ((gameBoard[0] === 'O' && gameBoard[1] === 'O' && gameBoard[2] === 'O')
   || (gameBoard[3] === 'O' && gameBoard[4] === 'O' && gameBoard[5] === 'O')
   || (gameBoard[6] === 'O' && gameBoard[7] === 'O' && gameBoard[8] === 'O')
   || (gameBoard[0] === 'O' && gameBoard[4] === 'O' && gameBoard[8] === 'O')
@@ -41,6 +44,7 @@ function checkScore(gameBoard) {
   || (gameBoard[2] === 'O' && gameBoard[4] === 'O' && gameBoard[6] === 'O')
   || (gameBoard[1] === 'O' && gameBoard[4] === 'O' && gameBoard[7] === 'O')) {
     console.log('O wins!');
+    oScore++;
     resetGame(gameBoard);
   }
 }
@@ -111,7 +115,7 @@ const createGameBoard = (function () {
   };
 }());
 
-createGameBoard.gameBoard();
+// createGameBoard.gameBoard();
 
 function resetGame() {
   gameBoard = ['', '', '', '', '', '', '', '', ''];
